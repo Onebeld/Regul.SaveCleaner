@@ -1,0 +1,90 @@
+<PleasantDialogWindow xmlns="https://github.com/avaloniaui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                      x:Class="Regul.SaveCleaner.Views.ClearCacheSettings"
+                      xmlns:s="using:Regul.SaveCleaner"
+                      Icon="avares://Regul.Assets/icon.ico"
+                      Title="{StaticResource ClearCache}">
+	<PleasantDialogWindow.Styles>
+		<Style Selector="PleasantDialogWindow /template/ Border#PART_ModalWindow">
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+		</Style>
+	</PleasantDialogWindow.Styles>
+	<StackPanel Spacing="5" Margin="5">
+		<CheckBox Content="CASPartCache.package" IsChecked="{Binding CasPartCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+		<CheckBox Content="compositorCache.package" IsChecked="{Binding CompositorCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+		<CheckBox Content="scriptCache.package" IsChecked="{Binding ScriptCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+		<CheckBox Content="simCompositorCache.package" IsChecked="{Binding SimCompositorCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+		<CheckBox Content="socialCache.package" IsChecked="{Binding SocialCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+		<CheckBox IsChecked="{Binding WorldCachesClear, Source={x:Static s:SaveCleanerSettings.Settings}}" IsEnabled="{Binding !$parent[PleasantDialogWindow].MacOSMode}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="{StaticResource All}" />
+					<TextBlock Text="{StaticResource Files}" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="WorldCaches" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding IgaCacheClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="{StaticResource All}" />
+					<TextBlock Text="{StaticResource Files}" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="IGACache" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding ThumbnailsClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="{StaticResource All}" />
+					<TextBlock Text="{StaticResource Files}" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="Thumbnails" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding FeaturedItemsClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="{StaticResource All}" />
+					<TextBlock Text="{StaticResource Files}" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="FeaturedItems" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding AllXmlClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="{StaticResource All}" />
+					<TextBlock Text="xml" />
+					<TextBlock Text="{StaticResource Files}" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding DccClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="dcc.ent" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="DCCache" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<CheckBox IsChecked="{Binding DownloadedSimsClear, Source={x:Static s:SaveCleanerSettings.Settings}}">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" Spacing="3">
+					<TextBlock Text="Downloadedsims.index" />
+					<TextBlock Text="{StaticResource FromTheFolder}" />
+					<TextBlock Text="SavedSims" />
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+	</StackPanel>
+</PleasantDialogWindow>

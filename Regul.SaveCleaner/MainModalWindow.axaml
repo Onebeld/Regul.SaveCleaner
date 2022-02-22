@@ -1,0 +1,121 @@
+﻿<PleasantDialogWindow xmlns="https://github.com/avaloniaui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:s="using:Regul.SaveCleaner"
+                      mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                      Icon="avares://Regul.Assets/icon.ico"
+                      Title="{DynamicResource TheSims3SaveCleaner}"
+                      x:Class="Regul.SaveCleaner.MainModalWindow">
+	<PleasantDialogWindow.DataContext>
+		<s:MainViewModel />
+	</PleasantDialogWindow.DataContext>
+	<PleasantDialogWindow.Styles>
+		<Style Selector="PleasantDialogWindow /template/ Border#PART_ModalWindow">
+			<Setter Property="VerticalAlignment" Value="Stretch" />
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+		</Style>
+	</PleasantDialogWindow.Styles>
+
+	<Grid RowDefinitions="Auto,*,Auto,30" Margin="5">
+		<DockPanel Grid.Row="0" Height="222">
+			<Border BorderBrush="{StaticResource BorderBrush}" 
+			        DockPanel.Dock="Top" 
+			        CornerRadius="5 5 0 0" 
+			        Padding="3" 
+			        BorderThickness="1 1 1 0" 
+			        Height="26" 
+			        Background="{StaticResource BackgroundBrush}">
+				<StackPanel Orientation="Horizontal" Spacing="5">
+					<Button Content="{DynamicResource ChooseAll}" Padding="5 0" Command="{Binding ChooseAllSaves}" IsEnabled="{Binding SaveFilePortraits.Count}" />
+					<Button Content="{DynamicResource CancelAll}" Padding="5 0" Command="{Binding CancelAllSaves}" IsEnabled="{Binding SaveFilePortraits.Count}" />
+				</StackPanel>
+			</Border>
+			<ListBox Classes="Horizontal" 
+			         CornerRadius="0 0 5 5" 
+			         SelectionMode="Multiple" 
+			         BorderThickness="1 0 1 1" 
+			         Items="{Binding SaveFilePortraits}" 
+			         SelectedItems="{Binding SelectSaves}" 
+			         ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+			         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal" Spacing="5"/>
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+			</ListBox>
+		</DockPanel>
+		
+		<TextBlock Grid.Row="0" Text="{DynamicResource SaveFilesNotFound}" Margin="0 26 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" IsVisible="{Binding !SaveFilePortraits.Count}" Foreground="{StaticResource ForegroundOpacityBrush}" />
+		
+		<Border CornerRadius="5" 
+		        BorderThickness="1" 
+		        BorderBrush="{StaticResource BorderBrush}" 
+		        Grid.Row="1" 
+		        Margin="0 5" 
+		        Background="{StaticResource BackgroundControlBrush}">
+			<Border CornerRadius="5" ClipToBounds="True">
+				<DockPanel>
+					<Border Padding="3 3 3 3" Background="{StaticResource BackgroundBrush}" DockPanel.Dock="Top" Height="26">
+						<StackPanel Orientation="Horizontal" Spacing="5">
+							<Button Content="{DynamicResource ChooseAll}" Padding="5 0" Command="{Binding ChooseAll}" />
+							<Button Content="{DynamicResource CancelAll}" Padding="5 0" Command="{Binding CancelAll}" />
+						</StackPanel>
+					</Border>
+
+					<ScrollViewer>
+						<StackPanel Spacing="5" Margin="5">
+							<CheckBox Content="{DynamicResource RemovingFamilyPortraits}"
+									  IsChecked="{Binding RemovingFamilyPortraits, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemovingFamilyPortraits}" />
+							<CheckBox Content="{DynamicResource DeletingCharacterPortraits}"
+									  IsChecked="{Binding DeletingCharacterPortraits, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipDeletingCharacterPortraits}" />
+							<CheckBox Content="{DynamicResource RemovingLotThumbnails}"
+									  IsChecked="{Binding RemovingLotThumbnails, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemovingLotThumbnails}" />
+							<CheckBox Content="{DynamicResource RemovingPhotos}"
+									  IsChecked="{Binding RemovingPhotos, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemovingPhotos}" />
+							<CheckBox Content="{DynamicResource RemovingGeneratedImages}"
+									  IsChecked="{Binding RemovingGeneratedImages, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemovingGeneratedImages}" />
+							<CheckBox Content="{DynamicResource RemovingTextures}"
+									  IsChecked="{Binding RemovingTextures, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemovingTextures}" />
+							<CheckBox Content="{DynamicResource RemoveOtherTypes}"
+									  IsChecked="{Binding RemoveOtherTypes, Source={x:Static s:SaveCleanerSettings.Settings}}"
+									  ToolTip.Tip="{DynamicResource ToolTipRemoveOtherTypes}" />
+						</StackPanel>
+					</ScrollViewer>
+				</DockPanel>
+			</Border>
+		</Border>
+		
+		<StackPanel Margin="0 0 0 5" Spacing="5" Grid.Row="2">
+			<CheckBox Content="{DynamicResource ClearCache}"
+					  IsChecked="{Binding ClearCache, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+			<CheckBox Content="{DynamicResource CreateBackup}"
+					  IsChecked="{Binding CreateABackup, Source={x:Static s:SaveCleanerSettings.Settings}}" />
+			<DockPanel>
+				<Button DockPanel.Dock="Left" Content="{DynamicResource Select}" Command="{Binding SelectPath}" Margin="0 0 5 0" Padding="10 0" />
+				<Button DockPanel.Dock="Right" IsEnabled="{Binding SelectSaves.Count}" Height="20" Width="20" ToolTip.Tip="{DynamicResource CreateBackup}" Command="{Binding CreateBackups}" Padding="0" Margin="5 0 0 0">
+					<Path Margin="2" Stretch="Uniform" Data="{StaticResource NewFileIcon}" />
+				</Button>
+				<TextBox Text="{Binding PathToBackup, Source={x:Static s:SaveCleanerSettings.Settings}}" Watermark="{DynamicResource PathBackup}"/>
+			</DockPanel>
+			<Button Padding="0" 
+			        Height="20" 
+			        Command="{Binding OpenSettingsWindow}"
+			        HorizontalAlignment="Left">
+				<StackPanel Orientation="Horizontal" Spacing="1">
+					<Path Margin="2" Stretch="UniformToFill" Data="{StaticResource SettingsIcon}" />
+					<TextBlock Text="{DynamicResource Settings}" VerticalAlignment="Center" Margin="0 0 2 0" />
+				</StackPanel>
+			</Button>
+		</StackPanel>
+		
+		<Button Grid.Row="3" Classes="mbdefault" IsEnabled="{Binding SelectSaves.Count}" Content="{DynamicResource Clear}" Command="{Binding Clear}" />
+	</Grid>
+</PleasantDialogWindow>

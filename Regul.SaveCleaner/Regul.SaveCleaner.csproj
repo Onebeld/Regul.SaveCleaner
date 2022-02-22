@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AssemblyVersion>2.1.0.0</AssemblyVersion>
+		<FileVersion>2.1.0.0</FileVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="0.10.12" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!--You have to specify the paths yourself-->
+		<Reference Include="Onebeld.Extensions">
+			<HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\Onebeld.Extensions.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+		<Reference Include="PleasantUI">
+			<HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\PleasantUI.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+		<Reference Include="Regul.Assets">
+			<HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\Regul.Assets.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+		<Reference Include="Regul.Base">
+			<HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\Regul.Base.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+		<Reference Include="Regul.ModuleSystem">
+			<HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\Regul.ModuleSystem.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+		<Reference Include="Regul.Settings">
+		  <HintPath>..\..\..\Regul\src\Regul\bin\Debug\net461\Regul.Settings.dll</HintPath>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</Reference>
+
+		<ProjectReference Include="..\Regul.S3PI\Regul.S3PI\Regul.S3PI.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32113.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regul.SaveCleaner", "Regul.SaveCleaner\Regul.SaveCleaner.csproj", "{CAD7D898-06F8-4ACA-8718-DDF2D51A58C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regul.S3PI", "Regul.S3PI\Regul.S3PI\Regul.S3PI.csproj", "{6FAC4FCE-F8B8-4C79-967C-26B1B848C2DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD7D898-06F8-4ACA-8718-DDF2D51A58C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD7D898-06F8-4ACA-8718-DDF2D51A58C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD7D898-06F8-4ACA-8718-DDF2D51A58C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD7D898-06F8-4ACA-8718-DDF2D51A58C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FAC4FCE-F8B8-4C79-967C-26B1B848C2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FAC4FCE-F8B8-4C79-967C-26B1B848C2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FAC4FCE-F8B8-4C79-967C-26B1B848C2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FAC4FCE-F8B8-4C79-967C-26B1B848C2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F45564AA-46FE-4CE8-B649-9BFC16E22396}
+	EndGlobalSection
+EndGlobal
